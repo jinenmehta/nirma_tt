@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Timetable</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #eef4ff;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      background: linear-gradient(90deg, #1e90ff, #6a5acd);
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    thead {
+      background: linear-gradient(90deg, #6a5acd, #1e90ff);
+      color: white;
+    }
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border: 1px solid #ddd;
+      position: relative;
+    }
+    .subject {
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .details {
+      display: none;
+      font-size: 13px;
+      color: #333;
+      margin-top: 5px;
+    }
+    .details.show {
+      display: block;
+      animation: fade 0.3s ease-in-out;
+    }
+    @keyframes fade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @media (max-width: 768px) {
+      table { display: none; }
+      .mobile-view { display: block; }
+      .day-card {
+        background: white;
+        padding: 12px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+      }
+      .day-card h2 {
+        background: #1e90ff;
+        color: white;
+        padding: 10px;
+        border-radius: 6px;
+        margin: 0 0 12px;
+        font-size: 18px;
+      }
+      .slot {
+        margin-bottom: 12px;
+        padding: 10px;
+        background: #f3f9ff;
+        border-left: 4px solid #6a5acd;
+        border-radius: 5px;
+      }
+      .slot .subject {
+        cursor: pointer;
+        font-weight: bold;
+        color: #333;
+      }
+      .slot .details {
+        display: none;
+        font-size: 14px;
+        margin-top: 4px;
+      }
+      .slot .details.show {
+        display: block;
+        animation: fade 0.3s ease-in-out;
+      }
+    }
+    @media (min-width: 769px) {
+      .mobile-view { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <h1>5BCE-B3 Weekly Timetable</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Day</th>
+        <th>07:45 - 08:40</th>
+        <th>08:40 - 09:35</th>
+        <th>09:50 - 10:45</th>
+        <th>10:45 - 11:40</th>
+        <th>12:35 - 13:30</th>
+        <th>13:30 - 14:25</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Monday</th>
+        <td colspan="2"><div class="subject" onclick="toggleDetails(this)">Computer Networks</div><div class="details">📍 W-408 A<br>👤 Bhavya Solanki</div></td>
+        <td><div class="subject" onclick="toggleDetails(this)">Design & Analysis of Algorithems</div><div class="details">📍 W-402<br>👤 Jitali Patel</div></td>
+        <td><div class="subject" onclick="toggleDetails(this)">Ethical Hacking</div><div class="details">📍 W-405<br>👤 Umesh Bodkhe</div></td>
+        <td><div class="subject" onclick="toggleDetails(this)">Information and Network Security</div></div><div class="details">📍 W-406<br>👤 Jigna Hathaliya</div></td>
+        <td><div class="subject" onclick="toggleDetails(this)">Digital Forensics</div></div><div class="details">📍 W-406<br>👤 Rajesh Gupta</div></td>
+      </tr>
+      <tr>
+        <th>Tuesday</th>
+        <td colspan="2"><div class="subject" onclick="toggleDetails(this)">Machine Learning</div><div class="details">📍 W-511(1)<br>👤 Nilesh Patel</div></td>
+        <td colspan="2"><div class="subject" onclick="toggleDetails(this)">Ethical Hacking</div><div class="details">📍 W-503<br>👤 Umesh Bodkhe</div></td>
+        <td colspan="2"><div class="subject" onclick="toggleDetails(this)">Digital Forensics</div></div><div class="details">📍 W-406<br>👤 Rajesh Gupta</div></td>
+      </tr>
+      <tr>
+        <th>Wednesday</th>
+        <td><div class="subject" onclick="toggleDetails(this)">Machine Learning</div><div class="details">📍 W-402<br>👤 Avantika Saklane</div></td>
+        <td><div class="subject" onclick="toggleDetails(this)">Computer Networks</div><div class="details">📍 W-402<br>👤 Pooja Chaturvedi</div></td>
+        <td><div class="subject" onclick="toggleDetails(this)">Machine Learning</div><div class="details">📍 W-405<br>👤 Avantika Saklane</div></td>
+        <td><div class="subject" onclick="toggleDetails(this)">Computer Networks</div><div class="details">📍 W-405<br>👤 Pooja Chaturvedi</div></td>
+        <td colspan="2"><div class="subject" onclick="toggleDetails(this)">Information and Network Security</div></div><div class="details">📍 W-506(5)<br>👤 Jigna Hathaliya</div></td>
+      </tr>
+      <tr>
+        <th>Thursday</th>
+        <td colspan="2"><div class="subject" onclick="toggleDetails(this)">Design & Analysis of Algorithems</div><div class="details">📍 W-501(2)<br>👤 Jitendra Bhatia</div></td>
+        <td><div class="subject" onclick="toggleDetails(this)">Design & Analysis of Algorithems</div><div class="details">📍 W-401<br>👤 Jitali Patel</div></td>
+        <td><div class="subject" onclick="toggleDetails(this)">Ethical Hacking</div><div class="details">📍 W-406<br>👤 Umesh Bodkhe</div></td>
+        <td><div class="subject" onclick="toggleDetails(this)">Digital Forensics</div></div><div class="details">📍 W-405<br>👤 Rajesh Gupta</div></td>
+        <td><div class="subject" onclick="toggleDetails(this)">Information and Network Security</div></div><div class="details">📍 W-405<br>👤 Jigna Hathaliya</div></td>
+      </tr>
+      <tr>
+        <th>Friday</th>
+        <td><div class="subject" onclick="toggleDetails(this)">Machine Learning</div><div class="details">📍 W-403<br>👤 Avantika Saklane</div></td>
+        <td><div class="subject" onclick="toggleDetails(this)">Computer Networks</div><div class="details">📍 W-403<br>👤 Pooja Chaturvedi</div></td>
+        <td><div class="subject" onclick="toggleDetails(this)">Ethical Hacking</div><div class="details">📍 W-406<br>👤 Umesh Bodkhe</div></td>
+        <td><div class="subject" onclick="toggleDetails(this)">Design & Analysis of Algorithems</div><div class="details">📍 W-406<br>👤 Jitali Patel</div></td>
+        <td colspan="2"><div class="subject" onclick="toggleDetails(this)">Digital Forensics</div></div><div class="details">📍 W-408A<br>👤 Ankit Thakar</div></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="mobile-view">
+    <div class="day-card">
+      <h2>Monday</h2>
+      <div class="slot"><div>07:45 - 09:35</div><div class="subject" onclick="toggleDetails(this)">Computer Networks</div><div class="details">📍 W-408 A<br>👤 Bhavya Solanki</div></div>
+      <div class="slot"><div>09:50 - 10:45</div><div class="subject" onclick="toggleDetails(this)">Design & Analysis of Algorithems</div><div class="details">📍 W-402<br>👤 Jitali Patel</div></div>
+      <div class="slot"><div>10:45 - 11:40</div><div class="subject" onclick="toggleDetails(this)">Ethical Hacking</div><div class="details">📍 W-405<br>👤 Umesh Bodkhe</div></div>
+      <div class="slot"><div>12:35 - 13:30</div><div class="subject" onclick="toggleDetails(this)">Information and Network Security</div><div class="details">📍 W-406<br>👤 Jigna Hathaliya</div></div>
+      <div class="slot"><div>13:30 - 14:25</div><div class="subject" onclick="toggleDetails(this)">Digital Forensics</div><div class="details">📍 W-406<br>👤 Rajesh Gupta</div></div>
+    </div>
+    <div class="day-card">
+      <h2>Tuesday</h2>
+      <div class="slot"><div>07:45 - 09:35</div><div class="subject" onclick="toggleDetails(this)">Machine Learning</div><div class="details">📍 W-511(1)<br>👤 Nilesh Patel</div></div>
+      <div class="slot"><div>09:50 - 11:40</div><div class="subject" onclick="toggleDetails(this)">Ethical Hacking</div><div class="details">📍 W-503<br>👤 Umesh Bodkhe</div></div>
+      <div class="slot"><div>12:35 - 14:25</div><div class="subject" onclick="toggleDetails(this)">Digital Forensics</div><div class="details">📍 W-406<br>👤 Rajesh Gupta</div></div>
+    </div>
+    <div class="day-card">
+      <h2>Wednesday</h2>
+      <div class="slot"><div>07:45 - 08:40</div><div class="subject" onclick="toggleDetails(this)">Machine Learning</div><div class="details">📍 W-402<br>👤 Avantika Saklane</div></div>
+      <div class="slot"><div>08:40 - 09:35</div><div class="subject" onclick="toggleDetails(this)">Computer Networks</div><div class="details">📍 W-402<br>👤 Pooja Chaturvedi</div></div>
+      <div class="slot"><div>09:50 - 10:45</div><div class="subject" onclick="toggleDetails(this)">Machine Learning</div><div class="details">📍 W-405<br>👤 Avantika Saklane</div></div>
+      <div class="slot"><div>10:45 - 11:40</div><div class="subject" onclick="toggleDetails(this)">Computer Networks</div><div class="details">📍 W-405<br>👤 Pooja Chaturvedi</div></div>
+      <div class="slot"><div>12:35 - 14:25</div><div class="subject" onclick="toggleDetails(this)">Information and Network Security</div><div class="details">📍 W-506(5)<br>👤 Jigna Hathaliya</div></div>
+    </div>
+    <div class="day-card">
+      <h2>Thursday</h2>
+      <div class="slot"><div>07:45 - 09:35</div><div class="subject" onclick="toggleDetails(this)">Design & Analysis of Algorithems</div><div class="details">📍 W-501(2)<br>👤 Jitendra Bhatia</div></div>
+      <div class="slot"><div>09:50 - 10:45</div><div class="subject" onclick="toggleDetails(this)">Design & Analysis of Algorithems</div><div class="details">📍 W-401<br>👤 Jitali Patel</div></div>
+      <div class="slot"><div>10:45 - 11:40</div><div class="subject" onclick="toggleDetails(this)">Ethical Hacking</div><div class="details">📍 W-406<br>👤 Umesh Bodkhe</div></div>
+      <div class="slot"><div>12:35 - 13:30</div><div class="subject" onclick="toggleDetails(this)">Digital Forensics</div><div class="details">📍 W-405<br>👤 Rajesh Gupta</div></div>
+      <div class="slot"><div>13:30 - 14:25</div><div class="subject" onclick="toggleDetails(this)">Information and Network Security</div><div class="details">📍 W-405<br>👤 Jigna Hathaliya</div></div>
+    </div>
+    <div class="day-card">
+      <h2>Friday</h2>
+      <div class="slot"><div>07:45 - 08:40</div><div class="subject" onclick="toggleDetails(this)">Machine Learning</div><div class="details">📍 W-403<br>👤 Avantika Saklane</div></div>
+      <div class="slot"><div>08:40 - 09:35</div><div class="subject" onclick="toggleDetails(this)">Computer Networks</div><div class="details">📍 W-403<br>👤 Pooja Chaturvedi</div></div>
+      <div class="slot"><div>09:50 - 10:45</div><div class="subject" onclick="toggleDetails(this)">Ethical Hacking</div><div class="details">📍 W-406<br>👤 Umesh Bodkhe</div></div>
+      <div class="slot"><div>10:45 - 11:40</div><div class="subject" onclick="toggleDetails(this)">Design & Analysis of Algorithems</div><div class="details">📍 W-406<br>👤 Jitali Patel</div></div>
+      <div class="slot"><div>12:35 - 14:25</div><div class="subject" onclick="toggleDetails(this)">Digital Forensics</div><div class="details">📍 W-408A<br>👤 Ankit Thakar</div></div>
+    </div>
+  </div>
+
+  <script>
+    function toggleDetails(el) {
+      const detailBox = el.nextElementSibling;
+      detailBox.classList.toggle("show");
+    }
+  </script>
+</body>
+</html>
